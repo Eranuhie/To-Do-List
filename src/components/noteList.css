@@ -1,0 +1,20 @@
+.header{
+    
+}
+h2{
+   text-align: center;
+}
+button{
+    height: 35px;
+    width: 130px
+}
+.leftbtn{
+    margin-left: 20px;
+}
+.main{
+    background-color: #f5f5f5;
+    width: 300px;
+}
+.active{
+    background-color: hotpink;
+}
