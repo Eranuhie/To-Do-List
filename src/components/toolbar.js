@@ -17,7 +17,7 @@ class Toolbar extends Component {
         this.props.addNote("New Note") 
     }
     removeNotes(){
-        this.props.deleteNote()   
+        this.props.deleteNote(this.props.notes) 
     }
     render() { 
 
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return{
       addNote:note => dispatch(addNote(note)),
-    //   deleteNote: note => dispatch(deleteNote(note)),
+      deleteNote: note => dispatch(deleteNote(note)),
     }
     
 }

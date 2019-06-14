@@ -9,12 +9,21 @@ class NoteList extends Component {
     state = { 
        
      }
+     
     changeClass(data){
       this.props.toggleNote(data)
+      // document.querySelectorAll('h4').forEach(elm=>{
+      //   elm.removeAttribute('class')
+      //   console.log(elm)
+      // })
+      // e.target.className = "active"
       console.log(this.props.notes)
     }
-  
+
     render() { 
+      // this.props.subscrive(()=>{
+      //   console.log('updated')
+      // })
       if(this.props.notes.length){
       console.log(this.props.notes)}
       const allNotes = this.props.notes.map((note,index) =>{
@@ -34,7 +43,6 @@ class NoteList extends Component {
          );
     }
 }
- 
 const mapStateToProps = (state) => {
   return {
       notes:state.rootReducer1.notes,

@@ -1,6 +1,7 @@
 import {ADD_NOTE} from "./constants"
 import {DELETE_NOTE} from "./constants"
 import {TOGGLE_NOTE} from "./constants"
+import {CHANGE_VALUE} from "./constants"
 import uuid from "uuid";
 
 
@@ -19,5 +20,8 @@ export function toggleNote(payload){
     }
 }
 
+export function changeValue (payload) {
+    return { type:CHANGE_VALUE , payload}
+}
 
 
