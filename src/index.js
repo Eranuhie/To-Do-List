@@ -15,6 +15,11 @@ var obj = combineReducers({
 })
 let store = createStore(obj)
 
+// store.subscribe(() => {
+//     console.log( " state updated")
+//     console.log(store.getState())
+// })
+
 ReactDOM.render(
     <Provider store={store}>
     <App />

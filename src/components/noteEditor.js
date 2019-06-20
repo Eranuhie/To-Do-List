@@ -5,48 +5,32 @@ import {changeValue} from "../actions/action"
 
 
 class noteEditor extends Component {
-    state = {values : '' }
-    // handleOnChange(e){
-    //     this.props.changeValue(e.target.value)
-    // }
-
+    state = {values : this.props.notes}
     componentWillReceiveProps(nextProps){
         if(nextProps.notes!==this.props.notes){
-          //Perform some operation
-          this.setState({values: nextProps.notes });
-          
+          this.setState({values: nextProps.notes }); 
         }
       }
       handleOnChange(e) {
-          this.props.notes.map(elm =>{
-              if(elm.status ===true){
-                  elm.name = e.target.value
-              }
-          })
+          // this.props.notes.map(elm =>{
+          //     if(elm.status ===true){
+          //         elm.name = e.target.value
+          //     }
+          // })
+        this.props.changeValue(e.target.value)
         this.setState({
           values: this.props.notes
         })
-        this.props.changeValue(e.target.value)
-        console.log(this.props.notes)
-        console.log(this.state)
-      }
-    render() { 
+        // console.log(this.props.notes)
         // console.log(this.state)
-        // let {values} = this.state
-       
-        // if(values.length){
-        //     console.log(values)}
+      }
+      
+    render() { 
             const textarea = this.props.notes.map(note =>{
                 if(note.status===true){
-                    return <textarea value= {note.name} onChange = {(e) => this.handleOnChange(e)} ></textarea>
+                    return <textarea value= {note.name} onChange = {this.handleOnChange.bind(this)} ></textarea>
                 } 
-            })
-        
-        // const textarea = this.props.notes.map(note =>{
-        //     if(note.status===true){
-        //         return <textarea value= {note.name} ></textarea>
-        //     } 
-        // })
+            }) 
         return ( 
             <div>
                {textarea}

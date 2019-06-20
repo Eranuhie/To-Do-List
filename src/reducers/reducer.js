@@ -10,7 +10,7 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_NOTE:
-      console.log("payload ", action.payload)
+      // console.log("payload ", action.payload)
       let arrNewNotes = Object.assign({}, state)
       arrNewNotes.notes.forEach((elm)=>{
         elm.status = false
@@ -19,15 +19,20 @@ function rootReducer(state = initialState, action) {
       return Object.assign({}, state, {
         notes: state.notes.concat(action.payload)
       })
+      
     case TOGGLE_NOTE:
         let arrChangedNotes = Object.assign({}, state)
         arrChangedNotes.notes.forEach((elm)=>{
-          elm.status = false
+          elm.status = false  
         })
-        action.payload.status = true
+        let id = action.index
+        arrChangedNotes.notes[id].status =true
+        // action.payload.status = true
+      
         return Object.assign({}, state, {
           notes: arrChangedNotes.notes
         })
+
     case DELETE_NOTE:
       let  arrDeleteNotes= state.notes.filter((elm) => elm.status != true)
       if(arrDeleteNotes.length>0)
@@ -36,6 +41,7 @@ function rootReducer(state = initialState, action) {
       return Object.assign({}, state, {
         notes: arrDeleteNotes
       })
+      
       case CHANGE_VALUE:
       let arrChangeNotes = Object.assign({}, state)
       arrChangeNotes.notes.forEach((elm)=>{

@@ -13,10 +13,10 @@ export function addNote(name) {
 export function deleteNote(payload) {
     return { type: DELETE_NOTE, payload}
 };
-export function toggleNote(payload){
+export function toggleNote(index){
     return {
         type: TOGGLE_NOTE,
-        payload
+        index
     }
 }
 
